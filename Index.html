@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signals2Trade - Copy Premium Signals for Free</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES AND RESET (Dark Theme) --- */
+        :root {
+            --color-dark: #1e1e2d;         /* Primary Background (Deep Blue/Black) */
+            --color-card: #28283e;         /* Card/Section Background */
+            --color-accent: #00d47e;       /* Vibrant Green Accent (CTA/Highlight) */
+            --color-text-light: #f4f4f4;   /* Main Text Color */
+            --color-text-muted: #a9a9b9;   /* Secondary/Muted Text */
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-dark);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        /* --- NAVIGATION --- */
+        .navbar {
+            background-color: rgba(30, 30, 45, 0.95); /* Slightly transparent */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+        
+        /* Primary CTA Button Style */
+        .cta-button {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 212, 126, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #00e88c;
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            padding: 150px 0;
+            background: linear-gradient(135deg, var(--color-dark) 0%, #10101d 100%);
+        }
+
+        .hero-headline {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subheadline {
+            font-size: 22px;
+            color: var(--color-text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Trustpilot Banner Style */
+        .trust-banner {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: var(--color-card);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--color-text-light);
+            border-left: 5px solid var(--color-accent);
+        }
+        
+        .trust-banner i {
+            color: gold;
+            margin-right: 5px;
+        }
+
+        /* --- FEATURES GRID --- */
+        #features {
+            background-color: var(--color-card);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--color-dark);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-item i {
+            color: var(--color-accent);
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+        
+        /* --- FOUNDER & PROOF SECTION --- */
+        #lennard {
+            background-color: var(--color-dark);
+        }
+
+        .lennard-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lennard-photo {
+            flex-shrink: 0;
+        }
+
+        .lennard-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-accent);
+        }
+
+        .lennard-text h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+        }
+
+        .lennard-text p {
+            font-size: 15px;
+            color: var(--color-text-light);
+        }
+        
+        /* --- FAQ SECTION --- */
+        #faq {
+            background-color: var(--color-card);
+        }
+        
+        .faq-item {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        
+        .faq-question {
+            background-color: var(--color-dark);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #38385a;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #38385a;
+            border-radius: 0 0 8px 8px;
+            color: var(--color-text-muted);
+            font-size: 15px;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 15px 20px;
+        }
+
+        /* --- FINAL CTA SECTION --- */
+        #final-cta {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 60px 0;
+        }
+        
+        #final-cta .cta-headline {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        #final-cta .cta-button {
+            background-color: var(--color-dark);
+            color: var(--color-accent);
+            box-shadow: none;
+        }
+
+        #final-cta .cta-button:hover {
+            background-color: #38385a;
+            color: var(--color-accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #10101d;
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+        
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* --- MEDIA QUERIES (Responsiveness) --- */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 38px;
+            }
+            .lennard-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .lennard-text {
+                margin-top: 20px;
+            }
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Signals2Trade</div>
+            <a href="#join" class="cta-button">Join Free Telegram</a>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1 class="hero-headline">
+                COPY MY PREMIUM SIGNALS FOR FREE <br>AND PROFIT FROM IT EVERY DAY
+            </h1>
+            <p class="hero-subheadline">
+                Easy-to-follow, professional trades delivered straight to your phone. Join over 15,000 members worldwide and start earning from day one.
+            </p>
+            <a href="#join" class="cta-button cta-large">
+                <i class="fab fa-telegram-plane"></i> JOIN THE FREE TELEGRAM COMMUNITY!
+            </a>
+            
+            <div class="trust-banner">
+                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                &nbsp; **Excellent** &middot; 4.6 out of 5 based on 231 reviews
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Why Choose Signals2Trade?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-signal"></i>
+                    <h3>Easy-to-Follow Signals</h3>
+                    <p>No experience needed. Get alerts and follow instantly. We've designed everything so you can simply copy, paste, and profit from our live trades.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Smart Risk Management</h3>
+                    <p>We tell you exactly how much to risk per trade. Our system prevents unnecessary losses and helps increase your chances of consistent profit.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-percent"></i>
+                    <h3>High Win Rate</h3>
+                    <p>On average, we maintain an 85% win rate. Our setups must be at least 99% confirmed before we take action. Better safe than sorry.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>100% Free & Trusted</h3>
+                    <p>Joining is completely free. We are sponsored by a leading trading platform. Test our signals with zero commitment, trusted by 70+ Trustpilot reviews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="lennard">
+        <div class="container">
+            <h2>Meet Your Trader, Lennard</h2>
+            <div class="lennard-content">
+                <div class="lennard-photo">
+                    <img src="https://via.placeholder.com/200/00d47e/1e1e2d?text=Lennard" alt="Lennard - Signals2Trade Founder">
+                </div>
+                <div class="lennard-text">
+                    <p>
+                        Hi, I'm Lennard. I'm 29 and have been active in the stock market for over 12 years, trading alongside some of the biggest names in finance.
+                    </p>
+                    <p>
+                        My team and I analyze charts for over 10 hours daily. I send out signals *before* I place my trade so you and I enter at the exact same point. I aim for a risk-to-reward ratio of up to 1:7, meaning small risks with big potential rewards.
+                    </p>
+                    <p class="mt-3">
+                        <i class="fas fa-check-circle" style="color: var(--color-accent);"></i> **Save Time:** No need to analyze charts yourself.<br>
+                        <i class="fas fa-check-circle" style="color: var(--color-accent);"></i> **Avoid Emotion:** Follow a proven, calculated strategy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are your signals really as profitable as you say they are?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, they are! We maintain an average **85% win rate**. You can join our free Telegram channel and see our members' results and testimonials for yourself.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What if I'm a complete noob in Trading?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No experience? No problem! 95% of our members had never placed a single trade before joining. We handle everything for you so you can simply copy, paste, and profit from day one.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is it really completely free?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It is **100% free**. Our service is funded by an exclusive partnership with an award-winning trading platform. As long as you use their platform, your membership remains completely free of charge. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join">
+        <div class="container">
+            <p class="cta-headline">Ready to build your side hustle?</p>
+            <a href="YOUR_TELEGRAM_LINK_HERE" class="cta-button">
+                <i class="fab fa-telegram-plane"></i> Access My Free Premium Signals Now
+            </a>
+            <p style="margin-top: 15px; color: var(--color-text-light);">*Setup takes less than 10 minutes. Trading capital required.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Signals2Trade. All rights reserved.</p>
+            <p>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Risk Disclosure</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Imprint</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('.fa-chevron-down');
+                    
+                    // Toggle the active state
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('fa-chevron-up');
+                    icon.classList.toggle('fa-chevron-down');
+
+                    // Close others (optional, for accordion effect)
+                    document.querySelectorAll('.faq-answer.active').forEach(item => {
+                        if (item !== answer) {
+                            item.classList.remove('active');
+                            item.previousElementSibling.querySelector('.fa-chevron-up').classList.remove('fa-chevron-up');
+                            item.previousElementSibling.querySelector('.fa-chevron-down').classList.add('fa-chevron-down');
+                        }
+                    });
+                });
+            });
+            
+            // Script to handle smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
