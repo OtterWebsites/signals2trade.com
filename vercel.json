@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "outputDirectory": ".",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/ott-core2-landing-page", "dest": "/ott-core2-landing-page/index.html" },
-    { "src": "/ott-core2-landing-page/", "dest": "/ott-core2-landing-page/index.html" }
-  ]
-}
