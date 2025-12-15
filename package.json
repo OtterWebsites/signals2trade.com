@@ -1,0 +1,13 @@
+{
+  "name": "signals2trade-landing",
+  "version": "1.0.0",
+  "description": "Landing pages for Signals2Trade",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build step required'",
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
