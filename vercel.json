@@ -1,6 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/ott-core2-landing-page", "destination": "/ott-core2-landing-page/index.html" },
-    { "source": "/ott-core2-landing-page/", "destination": "/ott-core2-landing-page/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ]
 }

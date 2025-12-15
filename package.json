@@ -4,8 +4,7 @@
   "description": "Landing pages for Signals2Trade",
   "scripts": {
     "dev": "serve .",
-    "build": "echo 'No build step required'",
-    "start": "serve ."
+    "build": "exit 0"
   },
   "devDependencies": {
     "serve": "^14.2.0"
