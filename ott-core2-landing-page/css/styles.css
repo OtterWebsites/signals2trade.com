@@ -1,0 +1,156 @@
+/* --- Consolidated CSS Styles --- */
+:root {
+    --primary-green: #75aa8b; /* Background color (Sage/Dusty Green) */
+    --card-background: #ffffff;
+    --text-color-dark: #333333;
+    --text-color-medium: #555555;
+    --logo-border: #444444;
+    --cta-blue: #196fa4; /* Button background */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--primary-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Card Container --- */
+.landing-page-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Header and Logo --- */
+.header-logo {
+    margin-bottom: 25px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--logo-border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 8px;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    /* Placeholder styling - replace src with your actual image */
+    background-color: #f1f1f1;
+    object-fit: contain; 
+}
+
+.logo-text {
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--logo-border);
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* --- Text Content --- */
+.tagline, .description {
+    color: var(--text-color-dark);
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 13px; /* Standardized size */
+}
+
+.tagline {
+    font-weight: bold; /* Make the main tagline bold */
+    font-size: 15px; /* Slightly larger for emphasis */
+    margin-bottom: 10px;
+}
+
+.description {
+     /* Remove the bottom margin here as we are applying it to the UL below */
+    margin-bottom: 0; 
+}
+
+/* --- Features List --- */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px; /* Space between description and list */
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 13px; /* Set to the same size as the description */
+    color: var(--text-color-medium);
+}
+
+.features-list li {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Specific styling for the list item that contains an internal line break */
+.features-list li:first-child {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.features-list i {
+    /* Tick symbol color set to black as requested */
+    color: #000000; 
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+/* Bolding the percentages and key stats within the list (already done in HTML) */
+.features-list strong {
+    font-weight: 700;
+}
+
+
+/* --- Call-to-Action Button --- */
+.cta-button {
+    background-color: var(--cta-blue);
+    color: var(--card-background);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 380px;
+    text-transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button i {
+    margin-right: 8px;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
